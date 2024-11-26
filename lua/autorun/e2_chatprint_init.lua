@@ -7,7 +7,6 @@ else
 		for _ = 1, net.ReadUInt(8) do
 			if net.ReadBool() then
 				local col = Color(net.ReadUInt(8), net.ReadUInt(8), net.ReadUInt(8))
-				print(col)
 				table.insert(args, col)
 			else
 				table.insert(args, net.ReadString())
