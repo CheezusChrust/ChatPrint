@@ -1,15 +1,19 @@
 # E2 Library: ChatPrint
 A utility function to print coloured text to a players chat area.
 
+**IMPORTANT**: This library will only work if you have admin privileges, or `sbox_E2_ChatPrintAdminOnly` is set to 0.
+
+Originally written by MattJeanes at https://github.com/MattJeanes/ChatPrint
+
 # Usage
 
-- chatPrint(`vector` color, `string` text, ...)
+- chatPrint(`...`) - Prints a message to everybody's chat. Works similar to [chat.AddText(...)](https://wiki.facepunch.com/gmod/chat.AddText) and can take a variable number of arguments. Takes vectors as colors.
 
-- chatPrint(`entity` targetPlayer, `vector` color, `string` text, ...)
+- chatPrint(`entity` targetPlayer, `...`) - Prints a message to a specific player's chat.
 
-- chatPrint(`array` args)
+- chatPrint(`array` args) - Same as chatPrint(`...`) but takes an array of arguments.
 
-- chatPrint(`entity` targetPlayer, `array` args)
+- chatPrint(`entity` targetPlayer, `array` args) - Same as chatPrint(`entity`, `...`) but takes an array of arguments.
 
 # Console Commands
 - `sbox_E2_ChatPrintAdminOnly` - If set to 1, only admins can use chatPrint. This is enabled by default.
@@ -24,7 +28,7 @@ Prints "Hello world!" in green to the E2 owner's chat:
 chatPrint(owner(), vec(0, 255, 0), "Hello world!")
 ```
 
-Make all of your chat messages rainbow coloured:
+Make all of your chat messages rainbow coloured for everyone:
 ```golo
 @name Rainbow Chat
 @strict
@@ -32,7 +36,7 @@ Make all of your chat messages rainbow coloured:
 event chat(Player:entity, Message:string, _:number) {
     local R = array()
 
-    R:pushVector(vec(255, 100, 255))
+    R:pushVector(teamColor(owner():team()))
     R:pushString(owner():name())
     R:pushVector(vec(255, 255, 255))
     R:pushString(": ")
