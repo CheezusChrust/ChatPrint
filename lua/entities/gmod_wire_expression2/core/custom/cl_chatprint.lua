@@ -1,1 +1,4 @@
-E2Helper.Descriptions["chatPrint"] = "Takes string text as minimum, entity player (before text) and vector color are optional extras."
+E2Helper.Descriptions["chatPrint(...)"] = "Prints a message to everyone's chatbox. Works like the Lua function chat.AddText and can take vectors as colors."
+E2Helper.Descriptions["chatPrint(e...)"] = "Prints a message to the chatbox of the player specified. Works like the Lua function chat.AddText and can take vectors as colors."
+E2Helper.Descriptions["chatPrint(r)"] = "Prints a message to everyone's chatbox, using an array of vectors and strings. Works like the Lua function chat.AddText and can take vectors as colors."
+E2Helper.Descriptions["chatPrint(er)"] = "Prints a message to the chatbox of the player specified, using an array of vectors and strings. Works like the Lua function chat.AddText and can take vectors as colors."
