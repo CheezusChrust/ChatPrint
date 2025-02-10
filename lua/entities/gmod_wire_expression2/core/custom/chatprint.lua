@@ -83,7 +83,7 @@ local function chatPrint(sender, target, tbl, ...)
 		end
 	end
 
-	net.Start("E2-Custom-ChatPrint")
+	net.Start("Expression2_ChatPrint")
 
 	net.WriteUInt(#newArgs, 8)
 	for _, v in ipairs(newArgs) do
